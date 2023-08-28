@@ -1,0 +1,61 @@
+version: '3.1'
+
+services:
+
+  wordpress:
+    build: ./server
+    image: wordpress
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 8080:80
+      - 443:443
+    env_file:
+      - .env
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: $DB_NAME
+      WORDPRESS_DB_USER: $DB_USER
+      WORDPRESS_DB_PASSWORD: $DB_PASSWORD
+    volumes:
+      - ./:/var/www/html
+      - ./server/conf/apache/000-default.conf:/etc/apache2/sites-available/000-default.conf
+      - ./server/conf/apache/default-ssl.conf:/etc/apache2/sites-available/default-ssl.conf
+      - ./server/conf/apache/default-ssl.conf:/etc/apache2/sites-enabled/default-ssl.conf
+      - ./server/conf/certs/domain.dev.pem:/etc/ssl/certs/domain.dev.pem
+      - ./server/conf/certs/domain.dev-key.pem:/etc/ssl/private/domain.dev-key.pem
+    networks:
+      - server
+
+  db:
+    image: mysql:5.7
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: $DB_NAME
+      MYSQL_USER: $DB_USER
+      MYSQL_PASSWORD: $DB_PASSWORD
+      MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+    volumes:
+      - ./server/db:/var/lib/mysql
+    networks:
+      - server
+  pma:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 9000:80
+    depends_on:
+      - db
+    environment:
+      PMA_HOST: db
+    networks:
+      - server
+
+volumes:
+  wordpress:
+  db:
+networks:
+  server:
