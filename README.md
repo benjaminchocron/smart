@@ -35,8 +35,9 @@ docker-compose up -d
     /wp-content/themes/*  
     !/wp-content/themes/{my theme}/
 9. Browse to phpMyAdmin: [http://localhost:9000]  
-10. Browse to your website [https://{my_domain.local}]   
-11. Thats it!
+10. import smart database ([click here](https://www.dropbox.com/scl/fi/tru6inl3di26q3a939t0p/smart.sql?rlkey=5m49go8lu89m5wsr4qd1hezp7&dl=0) to get the sql file)  
+11. Browse to your website [https://{my_domain.local}]   
+12. Thats it!
 
 [https://{my_domain.local}]: https://my_domain.local
 [http://localhost:9000]: http://localhost:9000

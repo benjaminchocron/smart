@@ -1,0 +1,115 @@
+/*
+Theme Name: Botiga Child
+Theme URI: https://playsmart.co.il/
+Author: Benjamin Chocron
+Author URI: https://playsmart.co.il
+Description: Botiga Child is an extension of the parent theme. With a clean, blank base as a starting point, this child theme incorporate a store where products are fetched via API.
+Tested up to:       6.2.2
+Requires at least:  5.6
+Requires PHP:       7.2
+Version: 1.0
+Template: botiga
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+Text Domain: botiga-child
+Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, accessibility-ready, blog, portfolio, news
+*/
+
+/** SMART PRODUCTS **/
+#smart-products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 1.5em;
+}
+
+.smart-products .product {
+    border: 1px solid;
+    padding: 10px;
+    border-radius: 8px;
+    position: relative;
+    padding-bottom: 70px;
+}
+
+.smart-products .product .messages .success,
+#smart-cart .messages .success{
+    text-align: center;
+    background-color: darkolivegreen;
+    color: white;
+    line-height: 1.2em;
+    padding: 10px 0;
+    margin: 0.5em 0;
+}
+
+.smart-products .title {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.smart-products .description {
+    font-size: .85em;
+    text-align: justify;
+}
+
+#smart-products .title > a,
+#smart-products .description > a {
+    text-decoration: none;
+}
+
+.smart-products button.add-to-cart {
+    width: calc(100% - 20px);
+    position: absolute;
+    bottom: 10px;
+}
+
+/** SMART PAGINATION **/
+#smart-pagination .numbers {
+    display: grid;
+    grid-auto-flow: column;
+    grid-column-gap: 1em;
+    grid-auto-columns: max-content;
+    margin-top: 2em;
+    justify-content: center;
+}
+
+#smart-pagination .numbers > .active {
+    background-color: cadetblue;
+}
+
+/** CATEGORIES **/
+.wp-block-categories [aria-current=page] {
+    font-weight: 800;
+}
+
+/** SMART SINGLE PRODUCT **/
+#smart-single-product .images {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-gap: 1.5em;
+    margin-top: 2em;
+}
+
+#smart-single-product .images > img{
+    border: 1px solid;
+}
+
+/** SMART CART **/
+#smart-cart .cart-container.smart-products {
+    display: grid;
+    grid-template-columns: repeat(3, minmax( 0, 1fr));
+    grid-gap: 1.5em;
+}
+
+#smart-cart .checkout {
+    background: antiquewhite;
+    padding: 1em;
+    margin-top: 2em;
+}
+
+#smart-cart .checkout .total-price {
+    margin-bottom: 1em;
+}
+
+/** GENERAL **/
+.smart-hide {
+    display: none;
+}

@@ -8,7 +8,7 @@
 /wp-content/plugins/*
 !/wp-content/plugins/smart/
 /wp-content/themes/*
-!/wp-content/themes/oceanwp-child/
+!/wp-content/themes/botiga-child/
 /wp-content/index.php
 /wp-content/languages
 /index.php
